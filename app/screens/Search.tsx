@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View, ScrollView, StatusBar } from "react-native";
+import React, { useEffect } from "react";
 import { TopBackHeader } from "../components/Reuseable";
 import InputComp from "../components/InputComp";
 import { Ionicons } from "../utils/Icons";
@@ -11,6 +11,7 @@ const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Search = () => {
   return (
     <View style={styles.container}>
+      {/* <StatusBar backgroundColor={AppColor.white} barStyle={"dark-content"} /> */}
       <View
         style={{
           paddingBottom: 5,
@@ -50,6 +51,7 @@ export default Search;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: AppColor.white,
   },
   searchContainer: {
     height: 45,

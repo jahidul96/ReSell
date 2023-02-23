@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { FC } from "react";
 import { AppColor } from "../utils/AppColors";
 import { AntDesign, Fontisto, Ionicons } from "../utils/Icons";
+import { useNavigation } from "@react-navigation/native";
 
 interface textInterFace {
   text: any;
@@ -44,16 +45,32 @@ export const PhoneComp: FC<phoneProps> = ({ number }) => (
 interface BackProps {
   filter?: boolean;
   color?: any;
+  text?: string;
 }
 
-export const TopBackHeader: FC<BackProps> = ({ filter, color }) => {
+export const TopBackHeader: FC<BackProps> = ({ filter, color, text }) => {
+  const navigation = useNavigation<any>();
   return (
     <View style={styles.backContainer}>
-      <Ionicons
-        name="arrow-back"
-        size={25}
-        color={color ? color : AppColor.black}
-      />
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <Ionicons
+          onPress={() => navigation.goBack()}
+          name="arrow-back"
+          size={25}
+          color={color ? color : AppColor.black}
+        />
+        {text && (
+          <TextComp
+            text={text}
+            extraStyle={{ marginLeft: 10, fontSize: 17, fontWeight: "bold" }}
+          />
+        )}
+      </View>
       {filter && <AntDesign name="menu-fold" size={25} />}
     </View>
   );

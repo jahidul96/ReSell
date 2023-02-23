@@ -56,8 +56,8 @@ const Home = () => {
 
         {/*Featured ads */}
         <View style={styles.featuredTextContainer}>
-          <TextComp text="Featured Ads" extraStyle={styles.featuredText} />
-          <Pressable onPress={() => alert(11)}>
+          <TextComp text="Most Recent" extraStyle={styles.featuredText} />
+          <Pressable onPress={() => navigation.navigate("Explore")}>
             <TextComp text={"See All"} extraStyle={{ color: "red" }} />
           </Pressable>
         </View>
@@ -77,7 +77,9 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: AppColor.white,
+  },
   topContainer: {
     width: WIDTH,
     height: HEIGHT / 2,

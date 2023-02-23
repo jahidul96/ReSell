@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, StatusBar } from "react-native";
 import React from "react";
 import { TextComp, TopBackHeader } from "../components/Reuseable";
 import { WIDTH } from "../utils/AppDimension";
@@ -11,6 +11,10 @@ const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const Favorite = () => {
   return (
     <View style={styles.container}>
+      <StatusBar
+        backgroundColor={AppColor.navyBlue}
+        barStyle={"light-content"}
+      />
       {/* top content */}
       <View style={styles.topContainer}>
         <TopBackHeader color={AppColor.white} />
@@ -54,6 +58,7 @@ export default Favorite;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: AppColor.white,
   },
   topContainer: {
     width: WIDTH,
