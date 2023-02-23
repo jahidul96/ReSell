@@ -4,6 +4,7 @@ import {
   car,
   fashion,
   furniture,
+  job,
   laptop,
   mobile,
   monitor,
@@ -53,6 +54,11 @@ export const categoriesData = [
   },
   {
     id: 9,
+    icon: job,
+    name: "Job",
+  },
+  {
+    id: 10,
     icon: more,
     name: "More",
   },

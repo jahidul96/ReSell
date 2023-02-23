@@ -1,22 +1,37 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { FC } from "react";
 import { AppColor } from "../utils/AppColors";
 import { TextComp } from "./Reuseable";
-import { AntDesign, FontAwesome5, Fontisto } from "../utils/Icons";
+import {
+  AntDesign,
+  FontAwesome5,
+  Fontisto,
+  MaterialCommunityIcons,
+} from "../utils/Icons";
 import { useNavigation } from "@react-navigation/native";
 
 const img = "https://m.media-amazon.com/images/I/61VcLC0G13L._AC_SL1500_.jpg";
 
-const ProductItem = () => {
+interface Props {
+  fav?: boolean;
+}
+
+const ProductItem: FC<Props> = ({ fav }) => {
   const navigation = useNavigation<any>();
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate("Details")}
+      onPress={() => navigation.navigate("ProductDetails")}
     >
       {/* add to fav comp */}
-      <View style={styles.addToFav}>
-        <Fontisto name="favorite" color={AppColor.white} size={20} />
+      <View
+        style={[styles.addToFav, fav && { backgroundColor: AppColor.darkGray }]}
+      >
+        {fav ? (
+          <MaterialCommunityIcons name="delete" color={"red"} size={20} />
+        ) : (
+          <Fontisto name="favorite" color={AppColor.white} size={20} />
+        )}
       </View>
 
       <View style={styles.imgWrapper}>

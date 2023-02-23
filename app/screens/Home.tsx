@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   searchContentWrapper: {
-    marginTop: 20,
+    marginTop: 6,
   },
   extraTextStyle: {
     textAlign: "center",
@@ -114,11 +114,11 @@ const styles = StyleSheet.create({
     shadowRadius: 1.51,
     elevation: 3,
     zIndex: 1,
-    marginTop: -200,
+    marginTop: -225,
     marginBottom: 20,
     flexDirection: "row",
     flexWrap: "wrap",
-    paddingVertical: 30,
+    paddingVertical: 15,
   },
 
   //featured content style
