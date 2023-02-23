@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { FC } from "react";
 import { AppColor } from "../utils/AppColors";
-import { Ionicons } from "../utils/Icons";
+import { Fontisto, Ionicons } from "../utils/Icons";
 
 interface textInterFace {
   text: any;
@@ -23,6 +23,37 @@ export const SearchPlaceHolder = () => (
     </Text>
     <Ionicons name="search" size={16} color={AppColor.gray} />
   </TouchableOpacity>
+);
+
+interface phoneProps {
+  number: any;
+}
+
+export const PhoneComp: FC<phoneProps> = ({ number }) => (
+  <View
+    style={{
+      flexDirection: "row",
+      alignItems: "center",
+      marginBottom: 10,
+    }}
+  >
+    <View
+      style={{
+        width: 25,
+        height: 25,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: AppColor.navyBlue,
+        borderRadius: 100,
+      }}
+    >
+      <Fontisto name="phone" size={12} color={AppColor.white} />
+    </View>
+    <TextComp
+      text={number}
+      extraStyle={{ fontSize: 16, fontWeight: "bold", marginLeft: 10 }}
+    />
+  </View>
 );
 
 const styles = StyleSheet.create({

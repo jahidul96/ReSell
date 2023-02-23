@@ -1,14 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { AppColor } from "../utils/AppColors";
 import { TextComp } from "./Reuseable";
 import { AntDesign, FontAwesome5, Fontisto } from "../utils/Icons";
+import { useNavigation } from "@react-navigation/native";
 
 const img = "https://m.media-amazon.com/images/I/61VcLC0G13L._AC_SL1500_.jpg";
 
 const ProductItem = () => {
+  const navigation = useNavigation<any>();
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate("Details")}
+    >
       {/* add to fav comp */}
       <View style={styles.addToFav}>
         <Fontisto name="favorite" color={AppColor.white} size={20} />
@@ -33,7 +38,7 @@ const ProductItem = () => {
           <TextComp text="Dhaka" extraStyle={styles.location} />
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

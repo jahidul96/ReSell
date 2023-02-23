@@ -8,7 +8,6 @@ interface Props {
 }
 
 const CategorieComp: FC<Props> = ({ categorie }) => {
-  console.log(categorie);
   return (
     <View key={categorie.id} style={styles.categorieItem}>
       <Image source={categorie.icon} style={styles.iconImgStyle} />
