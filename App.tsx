@@ -1,24 +1,32 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import Home from "./app/screens/Home";
 import SingleProductDetails from "./app/screens/SingleProductDetails";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BottomNav from "./app/navigation/BottomNav";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <Drawer.Navigator
         screenOptions={{
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Main" component={BottomNav} />
-        <Stack.Screen name="Details" component={SingleProductDetails} />
-      </Stack.Navigator>
+        <Drawer.Screen
+          name="Main"
+          component={gestureHandlerRootHOC(BottomNav)}
+        />
+        <Drawer.Screen
+          name="Details"
+          component={gestureHandlerRootHOC(SingleProductDetails)}
+        />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

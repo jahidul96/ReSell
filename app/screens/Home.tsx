@@ -13,8 +13,10 @@ import { SearchPlaceHolder, TextComp } from "../components/Reuseable";
 import { categoriesData } from "../data/categories";
 import ProductItem from "../components/ProductItem";
 import CategorieComp from "../components/CategorieComp";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  const navigation = useNavigation<any>();
   return (
     <ScrollView
       showsVerticalScrollIndicator={false}
@@ -26,7 +28,12 @@ const Home = () => {
       {/* top content */}
       <View style={styles.topContainer}>
         {/* menu icon */}
-        <Ionicons name="menu" size={32} color={AppColor.white} />
+        <Ionicons
+          name="menu"
+          size={32}
+          color={AppColor.white}
+          onPress={() => navigation.openDrawer()}
+        />
 
         {/* search bar  */}
         <View style={styles.searchContentWrapper}>
