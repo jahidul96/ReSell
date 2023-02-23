@@ -25,7 +25,7 @@ const BottomNav = () => {
             return (
               <Ionicons
                 name="home"
-                size={20}
+                size={focused ? 25 : 20}
                 color={focused ? AppColor.navyBlue : AppColor.gray}
               />
             );
@@ -39,7 +39,7 @@ const BottomNav = () => {
                 >
                   <AntDesign
                     name="pluscircle"
-                    size={25}
+                    size={focused ? 25 : 20}
                     color={focused ? AppColor.navyBlue : AppColor.gray}
                   />
                 </TouchableNativeFeedback>
@@ -50,7 +50,7 @@ const BottomNav = () => {
             return (
               <Ionicons
                 name="search"
-                size={20}
+                size={focused ? 25 : 20}
                 color={focused ? AppColor.navyBlue : AppColor.gray}
               />
             );
@@ -58,7 +58,7 @@ const BottomNav = () => {
             return (
               <Fontisto
                 name="favorite"
-                size={20}
+                size={focused ? 25 : 20}
                 color={focused ? AppColor.navyBlue : AppColor.gray}
               />
             );
@@ -66,7 +66,7 @@ const BottomNav = () => {
             return (
               <Ionicons
                 name="person"
-                size={20}
+                size={focused ? 25 : 20}
                 color={focused ? AppColor.navyBlue : AppColor.gray}
               />
             );

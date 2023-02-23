@@ -2,9 +2,8 @@ import {
   ScrollView,
   StyleSheet,
   StatusBar,
-  Text,
   View,
-  Image,
+  Pressable,
 } from "react-native";
 import React from "react";
 import { HEIGHT, WIDTH } from "../utils/AppDimension";
@@ -49,7 +48,12 @@ const Home = () => {
         </View>
 
         {/*Featured ads */}
-        <TextComp text="Featured Ads" extraStyle={styles.featuredText} />
+        <View style={styles.featuredTextContainer}>
+          <TextComp text="Featured Ads" extraStyle={styles.featuredText} />
+          <Pressable onPress={() => alert(11)}>
+            <TextComp text={"See All"} extraStyle={{ color: "red" }} />
+          </Pressable>
+        </View>
 
         <View style={{ marginVertical: 10 }}>
           <ProductItem />
@@ -92,7 +96,6 @@ const styles = StyleSheet.create({
 
   categorieContainer: {
     width: "100%",
-    height: 300,
     backgroundColor: AppColor.white,
     borderRadius: 10,
     shadowColor: "#000000",
@@ -108,10 +111,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     flexDirection: "row",
     flexWrap: "wrap",
-    paddingVertical: 20,
+    paddingVertical: 30,
   },
 
   //featured content style
+  featuredTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 10,
+  },
   featuredText: {
     fontSize: 20,
     fontWeight: "bold",
