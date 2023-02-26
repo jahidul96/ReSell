@@ -10,13 +10,19 @@ import {
 } from "../utils/Icons";
 import { useNavigation } from "@react-navigation/native";
 
-const img = "https://m.media-amazon.com/images/I/61VcLC0G13L._AC_SL1500_.jpg";
-
-interface Props {
-  fav?: boolean;
+interface product {
+  id: number;
+  img: any;
+  price: string;
+  title: string;
+  location: string;
 }
 
-const ProductItem: FC<Props> = () => {
+interface Props {
+  product: product;
+}
+
+const ProductItem: FC<Props> = ({ product }) => {
   const navigation = useNavigation<any>();
   return (
     <TouchableOpacity
@@ -29,22 +35,22 @@ const ProductItem: FC<Props> = () => {
       </View>
 
       <View style={styles.imgWrapper}>
-        <Image source={{ uri: img }} style={styles.imgStyle} />
+        <Image source={{ uri: product?.img }} style={styles.imgStyle} />
       </View>
       <View
         style={{
           marginLeft: 10,
         }}
       >
-        <TextComp text="Asus GXR12993" extraStyle={styles.nameStyle} />
+        <TextComp text={product.title} extraStyle={styles.nameStyle} />
         <View style={[styles.locationWraper, { marginVertical: 6 }]}>
           <AntDesign name="tags" size={16} color="red" />
-          <TextComp text="20,999" extraStyle={styles.price} />
+          <TextComp text={product.price} extraStyle={styles.price} />
         </View>
 
         <View style={styles.locationWraper}>
           <FontAwesome5 name="map-marker-alt" size={16} color="red" />
-          <TextComp text="Dhaka" extraStyle={styles.location} />
+          <TextComp text={product.location} extraStyle={styles.location} />
         </View>
       </View>
     </TouchableOpacity>

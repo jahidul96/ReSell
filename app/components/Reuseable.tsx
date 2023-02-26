@@ -65,9 +65,15 @@ interface BackProps {
   filter?: boolean;
   color?: any;
   text?: string;
+  onPress?: any;
 }
 
-export const TopBackHeader: FC<BackProps> = ({ filter, color, text }) => {
+export const TopBackHeader: FC<BackProps> = ({
+  filter,
+  color,
+  text,
+  onPress,
+}) => {
   const navigation = useNavigation<any>();
   return (
     <View style={styles.backContainer}>
@@ -91,7 +97,12 @@ export const TopBackHeader: FC<BackProps> = ({ filter, color, text }) => {
         )}
       </View>
       {filter && (
-        <AntDesign name="menu-fold" size={25} color={AppColor.white} />
+        <AntDesign
+          name="menu-fold"
+          size={25}
+          color={AppColor.white}
+          onPress={onPress}
+        />
       )}
     </View>
   );

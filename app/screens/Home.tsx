@@ -14,6 +14,7 @@ import { categoriesData } from "../data/categories";
 import ProductItem from "../components/ProductItem";
 import CategorieComp from "../components/CategorieComp";
 import { useNavigation } from "@react-navigation/native";
+import { productData } from "../data/productData";
 
 const Home = () => {
   const navigation = useNavigation<any>();
@@ -63,11 +64,9 @@ const Home = () => {
         </View>
 
         <View style={{ marginVertical: 10 }}>
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
+          {productData.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
         </View>
       </View>
     </ScrollView>
