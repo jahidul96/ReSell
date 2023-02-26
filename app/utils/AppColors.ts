@@ -1,5 +1,5 @@
 export const AppColor = {
-  yellow: "yellow",
+  yellow: "#FFC93C",
   navyBlue: "#060047",
   white: "#fff",
   black: "#000",
