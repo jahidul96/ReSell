@@ -4,12 +4,15 @@ import React, { FC } from "react";
 interface Props {
   placeholder: string;
   extraStyle?: any;
+  multiline?: boolean;
 }
 
-const InputComp: FC<Props> = ({ placeholder, extraStyle }) => (
+const InputComp: FC<Props> = ({ placeholder, extraStyle, multiline }) => (
   <TextInput
+    multiline={multiline}
     placeholder={placeholder}
-    style={[styles.inputStyle, extraStyle]}
+    style={[styles.inputStyle, extraStyle, multiline && { paddingTop: 10 }]}
+    textAlignVertical={multiline ? "top" : "auto"}
   />
 );
 

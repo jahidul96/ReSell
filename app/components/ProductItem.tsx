@@ -16,7 +16,7 @@ interface Props {
   fav?: boolean;
 }
 
-const ProductItem: FC<Props> = ({ fav }) => {
+const ProductItem: FC<Props> = () => {
   const navigation = useNavigation<any>();
   return (
     <TouchableOpacity
@@ -24,14 +24,8 @@ const ProductItem: FC<Props> = ({ fav }) => {
       onPress={() => navigation.navigate("ProductDetails")}
     >
       {/* add to fav comp */}
-      <View
-        style={[styles.addToFav, fav && { backgroundColor: AppColor.darkGray }]}
-      >
-        {fav ? (
-          <MaterialCommunityIcons name="delete" color={"red"} size={20} />
-        ) : (
-          <Fontisto name="favorite" color={AppColor.white} size={20} />
-        )}
+      <View style={styles.addToFav}>
+        <Fontisto name="favorite" color={AppColor.white} size={20} />
       </View>
 
       <View style={styles.imgWrapper}>

@@ -30,12 +30,12 @@ const BottomNav = () => {
               />
             );
 
-          if (route.name == "CreatePost") {
+          if (route.name == "Post") {
             return (
               <Animated.View style={styles.btnCircle}>
                 <TouchableNativeFeedback
                   style={styles.qrWrapper}
-                  onPress={() => navigation.navigate("CreatePost")}
+                  onPress={() => navigation.navigate("Post")}
                 >
                   <AntDesign
                     name="pluscircle"
@@ -80,7 +80,6 @@ const BottomNav = () => {
           paddingBottom: 5,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
-          elevation: 10,
         },
 
         tabBarLabelStyle: {
@@ -92,7 +91,7 @@ const BottomNav = () => {
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Search" component={Search} />
-      <Tab.Screen name="CreatePost" component={CreatePost} />
+      <Tab.Screen name="Post" component={CreatePost} />
       <Tab.Screen name="Favorite" component={Favorite} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>

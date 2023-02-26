@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Pressable,
+} from "react-native";
 import { FC } from "react";
 import { AppColor } from "../utils/AppColors";
 import { AntDesign, Fontisto, Ionicons } from "../utils/Icons";
@@ -13,18 +19,24 @@ export const TextComp: FC<textInterFace> = ({ text, extraStyle }) => (
   <Text style={[styles.textStyle, extraStyle]}>{text}</Text>
 );
 
-export const SearchPlaceHolder = () => (
-  <TouchableOpacity style={styles.searchContainer}>
-    <Text
-      style={{
-        color: AppColor.gray,
-      }}
+export const SearchPlaceHolder = () => {
+  const navigation = useNavigation<any>();
+  return (
+    <Pressable
+      style={styles.searchContainer}
+      onPress={() => navigation.navigate("Search")}
     >
-      search
-    </Text>
-    <Ionicons name="search" size={16} color={AppColor.gray} />
-  </TouchableOpacity>
-);
+      <Text
+        style={{
+          color: AppColor.gray,
+        }}
+      >
+        search
+      </Text>
+      <Ionicons name="search" size={16} color={AppColor.gray} />
+    </Pressable>
+  );
+};
 
 interface phoneProps {
   number: any;
@@ -40,6 +52,13 @@ export const PhoneComp: FC<phoneProps> = ({ number }) => (
       extraStyle={{ fontSize: 16, fontWeight: "bold", marginLeft: 10 }}
     />
   </View>
+);
+
+interface heightProps {
+  height: any;
+}
+export const HeightBox: FC<heightProps> = ({ height }) => (
+  <View style={[{ width: "100%", height: height }]} />
 );
 
 interface BackProps {
@@ -71,7 +90,9 @@ export const TopBackHeader: FC<BackProps> = ({ filter, color, text }) => {
           />
         )}
       </View>
-      {filter && <AntDesign name="menu-fold" size={25} />}
+      {filter && (
+        <AntDesign name="menu-fold" size={25} color={AppColor.white} />
+      )}
     </View>
   );
 };

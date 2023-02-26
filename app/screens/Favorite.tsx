@@ -5,6 +5,7 @@ import { WIDTH } from "../utils/AppDimension";
 import { AppColor } from "../utils/AppColors";
 import { Fontisto } from "../utils/Icons";
 import ProductItem from "../components/ProductItem";
+import FavItem from "../components/FavItem";
 
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -17,8 +18,6 @@ const Favorite = () => {
       />
       {/* top content */}
       <View style={styles.topContainer}>
-        <TopBackHeader color={AppColor.white} />
-
         {/* placeholder content */}
         <View style={styles.placeholderContainer}>
           <View style={styles.iconWraper}>
@@ -37,17 +36,18 @@ const Favorite = () => {
 
       {/* all fav */}
 
-      <ScrollView
-        style={{
-          paddingHorizontal: 15,
-          paddingTop: 10,
-        }}
-        overScrollMode="never"
-        showsVerticalScrollIndicator={false}
-      >
-        {data.map((d) => (
-          <ProductItem key={d} fav />
-        ))}
+      <ScrollView overScrollMode="never" showsVerticalScrollIndicator={false}>
+        <View
+          style={{
+            flex: 1,
+            paddingTop: 10,
+            paddingHorizontal: 10,
+          }}
+        >
+          {data.map((d) => (
+            <FavItem key={d} />
+          ))}
+        </View>
       </ScrollView>
     </View>
   );
@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
     width: WIDTH,
     backgroundColor: AppColor.navyBlue,
     paddingHorizontal: 15,
-    paddingBottom: 15,
+    justifyContent: "center",
+    height: 60,
   },
   iconWraper: {
     flexDirection: "row",

@@ -12,14 +12,9 @@ const Search = () => {
   return (
     <View style={styles.container}>
       {/* <StatusBar backgroundColor={AppColor.white} barStyle={"dark-content"} /> */}
-      <View
-        style={{
-          paddingBottom: 5,
-          paddingHorizontal: 10,
-        }}
-      >
+      <View style={styles.topBarStyle}>
         {/*  header */}
-        <TopBackHeader filter />
+        <TopBackHeader filter color={AppColor.white} />
 
         {/* serach bar */}
         <View style={styles.searchContainer}>
@@ -53,12 +48,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColor.white,
   },
+  topBarStyle: {
+    paddingBottom: 10,
+    paddingHorizontal: 10,
+    backgroundColor: AppColor.navyBlue,
+  },
   searchContainer: {
-    height: 45,
+    height: 40,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: AppColor.darkGray,
+    backgroundColor: AppColor.white,
     paddingHorizontal: 10,
     borderRadius: 10,
   },

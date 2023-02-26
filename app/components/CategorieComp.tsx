@@ -1,18 +1,24 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import React, { FC } from "react";
 import { categieProps } from "../utils/interfaces";
 import { TextComp } from "./Reuseable";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
   categorie: categieProps;
 }
 
 const CategorieComp: FC<Props> = ({ categorie }) => {
+  const navigation = useNavigation<any>();
   return (
-    <View key={categorie.id} style={styles.categorieItem}>
+    <Pressable
+      key={categorie.id}
+      style={styles.categorieItem}
+      onPress={() => navigation.navigate("Explore")}
+    >
       <Image source={categorie.icon} style={styles.iconImgStyle} />
       <TextComp text={categorie.name} extraStyle={styles.itemName} />
-    </View>
+    </Pressable>
   );
 };
 

@@ -18,11 +18,11 @@ const SmallProduct = () => {
       <View style={styles.bottomContainer}>
         <TextComp text={"Asus ZeeBook"} extraStyle={styles.name} />
         <View style={[styles.locationWraper, { marginVertical: 5 }]}>
-          <FontAwesome5 name="map-marker-alt" size={13} color="red" />
+          <FontAwesome5 name="map-marker-alt" size={13} color={AppColor.gray} />
           <TextComp text="Dhaka" extraStyle={styles.location} />
         </View>
         <View style={[styles.locationWraper]}>
-          <AntDesign name="tags" size={13} color="red" />
+          <AntDesign name="tags" size={13} color={AppColor.gray} />
           <TextComp text="20,999" extraStyle={styles.location} />
         </View>
       </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontWeight: "bold",
+    fontSize: 15,
   },
   locationWraper: {
     flexDirection: "row",
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   },
   location: {
     marginLeft: 6,
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: "bold",
   },
 });
